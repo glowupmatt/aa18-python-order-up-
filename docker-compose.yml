@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      SECRET_KEY: qp02348jrqj43rpqj34pqjr
+      DATABASE_URL: sqlite:///dev.db
+      FLASK_APP: order_up.py
+    volumes:
+      - .:/app
+    command: ["flask", "run", "--host=0.0.0.0"]
